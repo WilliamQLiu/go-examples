@@ -104,7 +104,7 @@ func main() {
 	// d pointer is: <nil>
 
 	e := 1009
-	f := &e // give value to d pointer
+	f := &e // give value to pointer
 	fmt.Println("f reference to e is: ", f)
 	// f reference to e is: 0xc420000e448
 
@@ -113,5 +113,35 @@ func main() {
 	fmt.Println("e has been set through pointer f:", e)
 	fmt.Println("f looks like:", f)
 	fmt.Println("*f looks like:", *f)
+
+	// Arrays
+	var g [2]string
+	g[0] = "Hello"
+	g[1] = "World"
+	fmt.Println(g[0], g[1])
+	fmt.Println(g)
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	fmt.Println(primes)
+
+	// Slices of array
+	var s []int = primes[1:4]
+	fmt.Println(s) // [3, 5, 7]
+
+	// Append to array
+	s = append(s, 23)
+	fmt.Println(s)
+
+	// Range
+	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+	for index, value := range pow {
+		fmt.Printf("2**%d = %d\n", index, value)
+	}
+
+	// Maps
+	m := make(map[string]int) // Make a map of string to int
+	m["Answer"] = 42          // Assign or update map 'm' on key 'Answer' with value '42'
+	delete(m, "Answer")       // Delete an element with the key 'Answer'
+	v, ok := m["Answer"]      // If 'v' or 'ok' have not been declared yet, use this shorthand
+	fmt.Println("v is: ", v, " and 'ok' is: ", ok)
 
 }
