@@ -47,4 +47,14 @@ func main() {
 	fmt.Println("tail:", flag.Args()) // e.g. [a b c d e] when ./cmd-example a b c d e
 	// END COMMAND-LINE FLAGS
 
+	/*
+		START ENVIRONMENT VARIABLES
+		Environment Variables are for conveying configuration information
+	*/
+	os.Setenv("FOO", "1")
+	fmt.Println("FOO:", os.Getenv("FOO"))
+	fmt.Println("BAR:", os.Getenv("BAR"))
+
+	// END ENVIRONMENT VARIABLES
+
 }
